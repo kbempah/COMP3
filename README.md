@@ -5,3 +5,5 @@ It has been exactly 0 days since I made this readme file, but I will pretend lik
 **Oh side note**: I will be documenting some git help information here for easy reference as I learn how to use it
 
 - git help *command* -> Gets help on *command* from the manual pages
+- git diff -> shows items that have been modified but not staged/indexed. Essentially shows you the diff between . and staging area.
+- git diff --staged -> shows items that will be included in the next commit.
