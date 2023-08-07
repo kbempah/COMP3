@@ -1,0 +1,5 @@
+# Do not include vscode folder
+/.vscode/
+
+# Also ignore all files ending with ~
+*~
