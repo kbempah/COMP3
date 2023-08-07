@@ -4,4 +4,4 @@ It has been exactly 0 days since I made this readme file, but I will pretend lik
 
 **Oh side note**: I will be document some git commands here as I learn how to use it
 
-- git help <verb> -> Gets help from the manual pages
+- git help command -> Gets help from the manual pages
