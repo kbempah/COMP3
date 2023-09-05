@@ -2,28 +2,31 @@ cc := g++
 cppflags := -g -Wall -std=c++11
 target := prog
 
+.PHONY : all
 all : $(target)
 
 # directories for .o and .d files
 objdir := .obj
 depdir := $(objdir)/depfiles
 
-# all source, object, and dependency files
-srcs := $(wildcard *.cpp)
-objs := $(srcs:%.cpp=$(objdir)/%.o)
-depfiles = $(srcs:%.cpp=$(depdir)/%.d)
+srcs := $(wildcard *.cpp) # generate source files
+objs := $(srcs:%.cpp=$(objdir)/%.o) # generate object files from source files
+depfiles = $(srcs:%.cpp=$(depdir)/%.d) # generate dependency files from source files
 
-depflags = -MMD -MT $@ -MP -MF $(depdir)/$*.td
-# postcompile = mv -f $(depdir)/$*.td $(depdir)/$*.d && touch $@
+depflags = -MMD -MT $@ -MP -MF $(depdir)/$*.td	# dependency flags. this is where the magic happens
+compile.c := $(cc) $(cppflags) $(depflags) -c # compile options and flags
+postcompile := mv -f $(depdir)/$*.td $(depdir)/$*.d && touch # this step can be omitted but used to harden makefile
+
+output.opt = -o # specify output options
 
 # generate binary
 $(target) : $(objs)
-	$(cc) -o $@ $^
+	$(cc) $^ $(output.opt) $@
 
 # target to compile all .cpp files, generating .d files in the process
 $(objdir)/%.o : %.cpp $(depdir)/%.d | $(depdir)
-	$(cc) $(cppflags) $(depflags) -o $@ -c $<
-	mv -f $(depdir)/$*.td $(depdir)/$*.d && touch $@
+	$(compile.c) $< $(output.opt) $@
+	$(postcompile) $@
 
 # empty explicit target for handling missing .d files
 $(depfiles) :
