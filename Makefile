@@ -5,11 +5,14 @@ target := prog
 .PHONY : all
 all : $(target)
 
+# path to source files
+srcdir := .
+
 # directories for .o and .d files
 objdir := .obj
 depdir := $(objdir)/depfiles
 
-srcs := $(wildcard *.cpp) # generate source files
+srcs := $(wildcard $(srcdir)/*.cpp) # generate source files
 objs := $(srcs:%.cpp=$(objdir)/%.o) # generate object files from source files
 depfiles = $(srcs:%.cpp=$(depdir)/%.d) # generate dependency files from source files
 
