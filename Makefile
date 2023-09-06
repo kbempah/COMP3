@@ -8,7 +8,7 @@ all : $(target)
 # path to source files
 srcdir := .
 
-# directories for .o and .d files
+# path to directories for .o and .d files
 objdir := .obj
 depdir := $(objdir)/depfiles
 
@@ -20,7 +20,7 @@ depflags = -MMD -MT $@ -MP -MF $(depdir)/$*.td	# dependency flags. this is where
 compile.c := $(cc) $(cppflags) $(depflags) -c # compile options and flags
 postcompile := mv -f $(depdir)/$*.td $(depdir)/$*.d && touch # this step can be omitted but used to harden makefile
 
-output.opt = -o # specify output options
+output.opt := -o # specify output options
 
 # generate binary
 $(target) : $(objs)
