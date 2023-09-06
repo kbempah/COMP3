@@ -3,3 +3,5 @@
 
 # Also ignore all files ending with ~
 *~
+
+*.pdf
