@@ -6,7 +6,7 @@ target := program
 objdir := obj
 depdir := $(objdir)/dep
 
-srcs := $(wildcard *.cpp) # generate source files
+srcs := ../main.cpp # generate source files from current directory
 objs := $(srcs:%.cpp=$(objdir)/%.o) # generate object files from source files
 deps := $(srcs:%.cpp=$(depdir)/%.d) # generate dependency files from source files
 
