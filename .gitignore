@@ -4,5 +4,8 @@
 # Also ignore all files ending with ~
 *~
 
+# no need to track pdf files
 *.pdf
+
+# object file generated from Makefile
 prog
