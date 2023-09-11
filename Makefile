@@ -1,12 +1,12 @@
 cc := g++
 cppflags := -g -Wall -std=c++17
-target := program
+target := prog
 
 # path to directories for .o and .d files
 objdir := obj
 depdir := $(objdir)/dep
 
-srcs := ../main.cpp # generate source files from current directory
+srcs := daily2.cpp # generate source files from current directory
 objs := $(srcs:%.cpp=$(objdir)/%.o) # generate object files from source files
 deps := $(srcs:%.cpp=$(depdir)/%.d) # generate dependency files from source files
 
