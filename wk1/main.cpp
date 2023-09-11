@@ -7,6 +7,12 @@ void clear_keyboard_buffer();
 
 int main(void) {
     int x;
+    double PI = 3.14159;
+
+    // used for formatting output 
+    cout.setf(ios::fixed);
+    cout.setf(ios::showpoint);
+    cout.precision(8);
     
     cout << "Enter a value for x that is non-negative > ";
     cin >> x;
