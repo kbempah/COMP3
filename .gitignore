@@ -9,3 +9,7 @@
 
 # object file generated from Makefile
 prog
+*.o
+
+# have no idea what this is
+.DS_Store
