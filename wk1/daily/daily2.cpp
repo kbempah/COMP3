@@ -6,9 +6,9 @@
 
 using namespace std;
 
-const double FEET_TO_METERS_FACTOR = 0.3048;
-const int FEET_TO_INCHES_FACTOR = 12;
-const int METERS_TO_CENTIMETERS_FACTOR = 100;
+const double METERS_TO_FEET = 0.3048;
+const int INCHES_TO_FEET = 12;
+const int CENTIMETERS_TO_METERS = 100;
 
 void getLength(int32_t& _feet, double& _inches);
 void getMetricUnits(int32_t _feet, double _inches, int32_t& _meters, double& _centimeters);
@@ -57,11 +57,11 @@ void getMetricUnits(int32_t _feet, double _inches, int32_t& _meters, double& _ce
     double tempFeet = 0.0;
     double tempMeters = 0.0;
 
-    tempFeet = _feet + (_inches/FEET_TO_INCHES_FACTOR);
-    tempMeters = tempFeet * FEET_TO_METERS_FACTOR;
+    tempFeet = _feet + (_inches/INCHES_TO_FEET);
+    tempMeters = tempFeet * METERS_TO_FEET;
 
     _meters = floor(tempMeters);
-    _centimeters = fmod((tempMeters * METERS_TO_CENTIMETERS_FACTOR),METERS_TO_CENTIMETERS_FACTOR);
+    _centimeters = fmod((tempMeters * CENTIMETERS_TO_METERS),CENTIMETERS_TO_METERS);
 }
 
 void displayConversions(int32_t _feet, double _inches, int32_t _meters, double _centimeters)
@@ -74,8 +74,8 @@ void displayConversions(int32_t _feet, double _inches, int32_t _meters, double _
 
 void converUnits(int32_t& _feet, double& _inches)
 {
-    _feet += floor(_inches/FEET_TO_INCHES_FACTOR);
-    _inches = fmod(_inches, FEET_TO_INCHES_FACTOR);
+    _feet += floor(_inches/INCHES_TO_FEET);
+    _inches = fmod(_inches, INCHES_TO_FEET);
 }
 
 template<typename DataType>
