@@ -13,3 +13,6 @@ prog
 
 # have no idea what this is
 .DS_Store
+
+# no need to track makefiles
+Makefile
